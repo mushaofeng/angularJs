@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>scope</title>
+    <style type="text/css">
+        .ng-cloak {
+            display: none;
+        }
+        .age{
+
+        }
+    </style>
+</head>
+<body>
+<div class="ng-cloak" ng-controller="ControllerA">
+    Hello {{name}}! Age{{info.sex}}; 
+    <button ng-click="getAge()">DoIt!!</button>
+    <span class="ng-cloak">age{{info.age}}</span>
+</div>
+<div class="ng-cloak" ng-controller="ControllerB">
+    Hello {{name}}!;
+    <div class="ng-cloak" ng-controller="ControllerC">
+        Hello {{name}}!;
+        <div class="ng-cloak" ng-controller="ControllerD">
+            Hello {{name}}!;
+        </div>
+    </div>
+</div>
+<script src="./angular-1.0.1.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+// (function  () {
+    function ControllerA($scope) {
+        $scope.name = 'Kitty';
+        $scope.info={};
+        $scope.info.sex='M';
+        $scope.getAge=function  () {
+            debugger;
+                 $scope.info.age=18;
+        }
+
+    }
+
+    function ControllerB($scope) {
+        $scope.name = 'Lcllao';
+    }
+
+    function ControllerC($scope) {
+        $scope.name = 'Jeffrey';
+    }
+
+    function ControllerD($scope) {
+        debugger;
+
+    }        
+// })()
+
+</script>
+</body>
+</html>
