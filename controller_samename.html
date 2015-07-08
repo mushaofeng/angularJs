@@ -18,7 +18,17 @@
 				<li ng-repeat='index in list'>{{ index }}</li>
 	        </ul>
     	</div>
+    	<div  ng-controller="ControllerA">
+	        Your name: 
+	        <input type="text" ng-change="onchange()" ng-model="yourname"  placeholder="World">
+	        <!-- 
 
+<input type="text" ng-init="yourname='ccc'" ng-model="yourname"  placeholder="World">
+	         -->
+	        <button ng-click="aa()">yourname</button>
+	        <hr>
+	        Hello {{yourname||''}}!    		
+    	</div>
     </body>
     <script type="text/javascript">
     function  ControllerA($scope) {
@@ -28,6 +38,9 @@
     	$scope.aa=function  () {
 			alert($scope.yourname);
 			// $scope.yourname='aaa';
+    	}
+    	$scope.onchange=function  () {
+    		console.log( $scope.yourname );
     	}
     }
     </script>
