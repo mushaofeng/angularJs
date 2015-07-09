@@ -11,17 +11,23 @@
 </head>
 <body>
 <div ng-controller="ClockCtrlA" class="ng-cloak">
-   My Name is : {{name}}
+   My Name is : {{info.name}}
+   <input ng-model="info.desc" >
+   <div></div>
 </div>
 <div ng-controller="ClockCtrlB" class="ng-cloak">
-    My tel is : {{tel}}
+    My tel is : {{info.tel}}
+    <input  ng-model="info.desc">
+    <div ng-bind="info.desc"></div>
+    <div>{{info.desc}}</div>
 </div>
 <script src="./angular-1.0.1.min.js" type="text/javascript"></script>
 <script type="text/javascript">
     angular.module("aaa", []).factory("myInfo", function () {
         return {
             name:'牟少峰',
-            tel:'18611111111'
+            tel:'18611111111',
+            desc:'前端开发工程师'
         };
     });
     /**
@@ -31,12 +37,11 @@
      * @constructor
      */
     function ClockCtrlA($scope,myInfo) {
-        $scope.name = myInfo.name;
+        $scope.info = myInfo;
     }
     function ClockCtrlB($scope,myInfo) {
-        $scope.tel = myInfo.tel;
+        $scope.info = myInfo;
     }    
-
     // console.log( angular.injector('aaa') );
 </script>
 </body>

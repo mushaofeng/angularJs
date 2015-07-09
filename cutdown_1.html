@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>test</title>
+<meta charset="utf-8">
+<style>
+/*倒计时时间*/
+.countdown-wrap{
+    display: none;
+/*    background: url(http://ting.baidu.com/cms/topics/tpl_topic/images/topic_jiuxianzai_countdown.jpg) no-repeat transparent;*/
+}
+.countdown{
+    position: relative;
+    height: 150px;
+}
+.countdown-time{
+    position: absolute;
+    left: 4px; 
+    top: 48px;
+}
+.countdown .time-block{
+    display: inline-block;
+    width: 38px;
+    height: 50px;
+    line-height: 50px;
+    color: #FFF;
+    font-size: 48px;
+    text-align: center;
+    margin-right: 2px;
+    z-index: 1000;
+    color: #000;
+}
+#time-2,#time-4{
+    margin-right: 57px;
+}
+</style>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function () {
+
+// 倒计时时间
+	var timeBlock = $(".time-block"),countdown,timeOver;
+	countdown=10000;
+	function initStr(time){
+		var t = Math.floor(time);
+		return t >= 10 ? String(t) : ('0'+t);
+	}
+	function initTime(t){
+		var t = t.split("");
+		$(t).each(function(i){
+			console.log( t[i] );
+			timeBlock.eq(i).html(t[i]);
+		})
+	}
+	function inserTime () {
+		countdown = countdown - 1;
+		
+		if(countdown>0){
+			timeOver = initStr(countdown/3600)+initStr(countdown%3600/60)+initStr(countdown%60);
+			initTime(timeOver);	
+		}else{
+			clearInterval(inserTime);
+		}
+	}		
+	function showTime () {
+		$('.countdown-wrap').show();
+		inserTime();
+		setInterval(inserTime,1000);
+	}
+	showTime();
+
+});
+</script>
+</head>
+<body>
+	<div class="countdown-wrap">
+		<div class="countdown">
+			<div class="countdown-time">
+				<span class="time-block" id="time-1"> </span><span class="time-block" id="time-2"> </span><span class="time-block" id="time-3"> </span><span class="time-block" id="time-4"> </span><span class="time-block" id="time-5"> </span><span class="time-block" id="time-6"> </span>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+

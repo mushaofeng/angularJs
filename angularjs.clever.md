@@ -20,10 +20,12 @@ theme: sudodoki/reveal-cleaver-theme
 
 --
 
-##数据双向绑定
+##Demo
 
-* [Simple Demo](file:///Users/msf/LAMP/webserver/ng/index.html)
-* [form Demo](file:///Users/msf/LAMP/webserver/ng/form.html)
+* [cutdown jQuery](./cutdown_1.html)
+* [cutdown Angular](./cutdown.html)
+* [Simple Demo](./index.html)
+* [form Demo](./form.html)
 
 -- 
 ## AngularJs 解析
@@ -56,14 +58,15 @@ theme: sudodoki/reveal-cleaver-theme
 
 9. 将“{{name}}”的值插入(interpolates)到表达式中，最终显示”Hello Kitty!”。
 
-[Simple Demo](file:///Users/msf/LAMP/webserver/ng/index.html)
+[Simple Demo](./index.html)
 
 --
 ## Runtime
 
 ![Runtime](./learn/runtime.png)
 
-[cutdown](file:///Users/msf/LAMP/webserver/ng/cutdown.html)
+[cutdown](./cutdown.html)
+[cutdown timeout](./cutdown_timeout.html)
 
 [参考](http://www.cnblogs.com/lcllao/archive/2012/09/07/2671227.html)
 
@@ -86,7 +89,7 @@ theme: sudodoki/reveal-cleaver-theme
 
 scope的是负责检测model的变化，并作为表达式的执行上下文
 
-[demo](file:///Users/msf/LAMP/webserver/ng/scope.html)
+[demo](./scope.html)
 
 --
 ##Controller
@@ -111,7 +114,7 @@ Angular模版的不同之处，在于它是基于DOM的而不是基于字符串�
 浏览器把HTML转换为DOM，然后DOM成为了compiler（angular的模版引擎）的输入。
 Compiler查找directives，依次在model中设置watches。
 
-* [directive Demo](file:///Users/msf/LAMP/webserver/ng/index.html)
+* [directive Demo](./index.html)
 
 --
 
@@ -121,13 +124,12 @@ Compiler查找directives，依次在model中设置watches。
 
 Directive允许你以声明的方式扩展HTML的标签。
 
-TODO  指示器 
 
 [参考](http://www.cnblogs.com/lcllao/archive/2012/09/09/2677190.html)
 --
 ##Injector(服务定位器 注入器)
 
-[参考](file:///Users/msf/LAMP/webserver/ng/Injector.html)
+[Injector Demo](./Injector.html)
 
 --
 

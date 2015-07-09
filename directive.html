@@ -17,37 +17,37 @@
 
 <script type="text/javascript">
     angular.module("myDirective",[])
-            .directive("contenteditable",function() {
-                return {
-                    require:'ngModel',
-                    link:function (scope, element, attr, ngModel) {
-                        function setVal() {
-                            ngModel.$setViewValue(element.text());
-                        }
-                        scope.$watch('content',function  () {
-                            // alert(111);
-                            // scope.content='aaaa';
-                        })
-
-                        // veiw -> model
-                        element.bind("keyup",function() {
-                            scope.$apply(setVal);
-                        });
-                        // model -> view
-                        ngModel.$render = function(val) {
-                            console.log("render running");
-                            element.html(val);
-                        };
-                        //init
-                        setVal();
+        .directive("contenteditable",function() {
+            return {
+                require:'ngModel',
+                link:function (scope, element, attr, ngModel) {
+                    function setVal() {
+                        ngModel.$setViewValue(element.text());
                     }
+                    scope.$watch('content',function  () {
+                        // alert(111);
+                        // scope.content='aaaa';
+                    })
+
+                    // veiw -> model
+                    element.bind("keyup",function() {
+                        scope.$apply(setVal);
+                    });
+                    // model -> view
+                    ngModel.$render = function(val) {
+                        console.log("render running");
+                        element.html(val);
+                    };
+                    //init
+                    setVal();
                 }
-            })
-            .controller("MyCtrl",function($scope) {
-                $scope.reset = function() {
-                        $scope.content = "My Little Dada";
-                };
-            });
+            }
+        })
+        .controller("MyCtrl",function($scope) {
+            $scope.reset = function() {
+                    $scope.content = "My Little Dada";
+            };
+        });
 </script>
 </body>
 </html>
